@@ -1,21 +1,25 @@
 <template>
  <!-- <div class="home">
-        <h2>The Weather App</h2>
+        <h2>The 
+           App</h2>
         <button id="searchbtn" type="button" onClick="showWeatherComponent()">Search forecast.</button>
   </div> -->
-   
-  <div id="app" :class="weatherClass">
+          <!-- <button id="searchbtn" type="button" v-on:click="showWeatherComponent()">Search forecast.</button> -->
+
+  <div id="app"  :class="weatherClass">
     <!-- <div id="app" :class="typeof weather.main != 'undefined' && weather.weather[0].main == 'Rain' ? 'rain' : ''"> -->
   <!-- weather.weather[0].main == 'Smoke' ? 'smoke' : weather.weather[0].main == 'Clouds' ? 'clouds' : weather.weather[0].main == 'Snow' ? 'snow' :  -->
     <main>
       <h2>The Weather App</h2>
+       <!-- <button id="searchbtn" type="button" v-on:click="showWeatherComponent()">Search forecast.</button> -->
 <!-- serach/display weather page -->
       <div class="search-box">
         <input type="text" 
                class="search-bar"
                placeholder="Search..."
                v-model="query"
-               @keypress="fetchWeather"> 
+               @keypress="fetchWeather"
+               style="visibility: visible;"> 
                <!-- binding the query with v-model -->
       </div>
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
@@ -100,15 +104,17 @@ export default {
       return `${day} ${date} ${month} ${year}`;
     },
 
-    showWeatherComponent(){
-    document.getElementById("app").style.display = "block";
-    //   // if(weatherComponent.style.display === "none"){
-    //     weatherComponent.style.display = "block";
-    //   // }
-    //   // else{
-    //   //   weatherComponent.style.display = "none";
-    //   // }
-    }
+    // showWeatherComponent(){
+    //   // console.log("hello");
+    // var weatherComponent = document.getElementsByClassName("search-bar");
+    //    if(weatherComponent.style.visibility === "visible"){
+    //     weatherComponent.style.visibility= "hidden";
+    //    }
+    //   else{
+    //     console.log("hello");
+    // //      weatherComponent.style.display = "none";
+    //    }
+    // }
   }
 }
 </script>
@@ -143,6 +149,10 @@ body {
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+}
+
+#home{
+height: 100%;
 }
 
 #app.clear {
@@ -186,7 +196,7 @@ main {
   padding: 15px;
   color: #313131;
   font-size: 20px;
-
+  
   appearance: none;
   border: none;
   outline: none;
@@ -219,9 +229,11 @@ main {
   font-style: italic;
   text-align: center;
 }
+
 .weather-box {
   text-align: center;
 }
+
 .weather-box .temp {
   display: inline-block;
   padding: 10px 25px;
@@ -234,6 +246,7 @@ main {
   margin: 30px 0px;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
 }
+
 .weather-box .weather {
   color: #FFF;
   font-size: 48px;

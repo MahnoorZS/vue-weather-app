@@ -5,7 +5,7 @@
     <main>
       
 <!-- serach/display weather page -->
-      <div class="search-box">
+      <div class="search-box" style="display: none" v-if="fetchWeather()">
         <input type="text" 
                class="search-bar"
                placeholder="Search..."
